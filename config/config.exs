@@ -10,6 +10,11 @@ use Mix.Config
 config :app,
   ecto_repos: [App.Repo]
 
+# Configures the Repo
+config :app, App.Repo,
+  migration_primary_key: [name: :id, type: :binary_id],
+  migration_timestamps: [type: :utc_datetime_usec]
+
 # Configures the endpoint
 config :app, AppWeb.Endpoint,
   url: [host: "localhost"],

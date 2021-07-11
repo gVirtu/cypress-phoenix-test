@@ -1,0 +1,13 @@
+{
+  "downloadsFolder": "test/cypress/downloads",
+  "fixturesFolder": "test/cypress/fixtures",
+  "integrationFolder": "test/cypress/integration",
+  "pluginsFile": "test/cypress/plugins/index.js",
+  "screenshotsFolder": "test/cypress/screenshots",
+  "video": false,
+  "videosFolder": "test/cypress/videos",
+  "supportFile": "test/cypress/support/index.js",
+  "baseUrl": "http://localhost:4002",
+  "viewportWidth": 1920,
+  "viewportHeight": 1080
+}

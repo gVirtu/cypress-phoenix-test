@@ -17,6 +17,8 @@ defmodule AppWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    get "/todo-items", TodoItemController, :index
   end
 
   # Other scopes may use custom stacks.
@@ -40,5 +42,9 @@ defmodule AppWeb.Router do
         ecto_repos: [App.Repo],
         metrics: AppWeb.Telemetry
     end
+  end
+
+  if Mix.env() == :cypress do
+    forward("/e2e", App.Plug.EndToEndTest)
   end
 end

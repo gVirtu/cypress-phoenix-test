@@ -1,9 +1,22 @@
 defmodule App do
-  @moduledoc """
-  App keeps the contexts that define your domain
-  and business logic.
+  def schema do
+    quote do
+      use Ecto.Schema
+      import Ecto.Changeset
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+      @primary_key {:id, :binary_id, autogenerate: true}
+      @foreign_key_type :binary_id
+      @timestamps_opts [type: :naive_datetime_usec]
+    end
+  end
+
+  def migration do
+    quote do
+      use Ecto.Migration
+    end
+  end
+
+  defmacro __using__(which) when is_atom(which) do
+    apply(__MODULE__, which, [])
+  end
 end
